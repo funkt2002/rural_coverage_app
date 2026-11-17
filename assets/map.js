@@ -10,28 +10,26 @@ const BASEMAPS = {
 };
 
 let map = null;
-let ready = false;  // false while a basemap style is loading
-let current = {};  // the latest map data, layers and basemap sent by Dash
+let ready = false; 
+let current = {};  
 let shown_county = null;
 let shown_basemap = null;
 let markers = [];
 
 
-function add_layers() {  // a new basemap style wipes our layers, so they go back on after every style load
-    const data = current.data;
-    const labels = map.getStyle().layers.find(layer => layer.type === "symbol");  // keep the basemap's town names on top
-    const below = labels ? labels.id : undefined;
-    const ramp = ["interpolate", ["linear"], ["get", "pop_night"]];
+function add_layers() {  
+    const data= current.data;
+    const ramp= ["interpolate", ["linear"], ["get", "pop_night"]];
     data.ramp.forEach(([count, color]) => ramp.push(count, color));  // POP_RAMP stops from app.py, colors blend in between
 
     map.addSource("cells", {type: "geojson", data: `/data/${data.county}/cells.geojson`});
     map.addSource("border", {type: "geojson", data: `/data/${data.county}/boundary.geojson`});
     map.addLayer({id: "population", type: "fill", source: "cells", filter: [">=", ["get", "pop_night"], 1],
-                  paint: {"fill-color": ramp, "fill-opacity": 0.8}}, below);
+                  paint: {"fill-color": ramp, "fill-opacity": 0.8}});
     map.addLayer({id: "wildfire", type: "line", source: "cells", filter: [">=", ["get", "wildfires"], 1],
-                  paint: {"line-color": data.colors.wildfire, "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.5, 12, 1.5]}}, below);  // thin at county zoom so resident counts show
-    map.addLayer({id: "border", type: "line", source: "border", paint: {"line-color": data.colors.border, "line-width": 2}}, below);
-    map.addLayer({id: "cells-hover", type: "fill", source: "cells", paint: {"fill-opacity": 0}}, below);  // invisible, catches the mouse
+                  paint: {"line-color": data.colors.wildfire, "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.5, 12, 1.5]}});  // thin at county zoom so resident counts show
+    map.addLayer({id: "border", type: "line", source: "border", paint: {"line-color": data.colors.border, "line-width": 2}});
+    map.addLayer({id: "cells-hover", type: "fill", source: "cells", paint: {"fill-opacity": 0}});  // invisible, catches the mouse
 }
 
 
@@ -41,7 +39,7 @@ function hover_popup() {
         const cell = event.features[0].properties;
         popup.setLngLat(event.lngLat).setHTML(`${Math.round(cell.pop_night).toLocaleString()} residents<br>${cell.wildfires} wildfires`).addTo(map);
     });
-    map.on("mouseleave", "cells-hover", () => popup.remove());
+    map.on("mouseleave","cells-hover",() => popup.remove());
 }
 
 
@@ -53,14 +51,13 @@ function station_marker(station) {
         element.innerHTML = `<span class="x">✕</span><span class="name">${station.label}</span>`;
         return new maplibregl.Marker({element: element, anchor: "left", offset: [-10, 0]}).setLngLat([station.lon, station.lat]);  // centers the X on the station
     }
-    return new maplibregl.Marker({element: element}).setLngLat([station.lon, station.lat]);
-}
+    return new maplibregl.Marker({element: element}).setLngLat([station.lon, station.lat]);}
 
 
 function apply() {
     const data = current.data;
     if (!map.getSource("cells")) { add_layers(); }
-    if (shown_county !== data.county) {  // only a new county reloads the cells and moves the camera, so clicks keep your pan and zoom
+    if (shown_county !== data.county) { 
         map.getSource("cells").setData(`/data/${data.county}/cells.geojson`);
         map.getSource("border").setData(`/data/${data.county}/boundary.geojson`);
         map.jumpTo({center: data.center, zoom: data.zoom});
@@ -80,8 +77,8 @@ function apply() {
 
 
 function draw(data, layers, basemap) {
-    if (!data) { return null; }  // wait for the first plan from Dash
-    current = {data: data, layers: layers, basemap: basemap};
+    if (!data){ return null; }  // wait for the first plan from Dash
+    current={data: data, layers: layers, basemap: basemap};
 
     if (!map) {
         map = new maplibregl.Map({container: "map", style: BASEMAPS[basemap], center: data.center, zoom: data.zoom});
