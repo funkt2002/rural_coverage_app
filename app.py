@@ -92,7 +92,7 @@ legend_style = {"position": "absolute", "top": "10px", "left": "10px","zIndex": 
 
 @server.route("/data/<path:path>")
 def data_file(path):
-    return send_from_directory("data", path)  # the browser fetches each county's cells and border from here
+    return send_from_directory("data", path) #browser fetch from data 
 
 
 app.layout = html.Div([
@@ -111,35 +111,36 @@ app.layout = html.Div([
     html.Div([
         dcc.Checklist(id="layers", options=layer_options, value=["population", "wildfire", "open", "closed","border"],
                       labelStyle={"display": "block"}, style=legend_style),
-    html.Div([html.Label("Basemap"),
-                      dcc.Dropdown(id="basemap", options=basemaps, value="light", clearable=False)], style={"width": "160px"}),
+        dcc.Dropdown(id="basemap", options=basemaps, value="light", clearable=False,
+                     style={"position": "absolute","bottom":"30px","right":"10px","zIndex":"1","width":"140px"}),
         html.Div(id="map", style={"height": "100%", "--ink": INK, "--closed": CLOSURE_RED}),  # station colors for assets/style.css
         dcc.Store(id="map_data"), dcc.Store(id="drawn"),
-    ], style={"flex": "1", "position": "relative"}),
-], style={"display": "flex", "position": "fixed", "inset": "0", "fontFamily": FONT})  # fixed to the window, so the page never scrolls
+    ], style={"flex": "1", "position": "relative"})], style={"display": "flex", "position": "fixed", "inset": "0", "fontFamily": FONT})  # fixed to the window, so the page never scrolls
 
 
 @callback(Output("p", "options"), Output("p", "value"), Input("county", "value"))
+
 def p_choices(county):
-    county_solutions = solutions[county]
-    observed_p= county_solutions.p[county_solutions.id == "observed"].iloc[0]
+    county_solutions= solutions[county]
+    observed_p= county_solutions.p[county_solutions.id== "observed"].iloc[0]
     return sorted(county_solutions.p.unique().tolist()),int(observed_p)
 
 @callback(Output("table", "rowData"), Output("table", "selectedRows"),
           Input("county", "value"), Input("p", "value"), Input("front", "clickData"))
+
 def table_rows(county, p, click):
     county_solutions= solutions[county]
     rows = county_solutions[county_solutions.p ==p]
-    if ctx.triggered_id=="front":  # a point on the front selects its row
+    if ctx.triggered_id=="front":  #update table on click
         clicked = click["points"][0]["customdata"][0]
         return no_update, rows[rows.id == clicked].to_dict("records")
 
-    return rows.to_dict("records"), rows.head(1).to_dict("records")  #a new county or p starts on its first row
+    return rows.to_dict("records"), rows.head(1).to_dict("records")  #asssume first row on new county or p
 
 
 @callback(Output("map_data", "data"), Output("front", "figure"), Input("table", "selectedRows"), State("county", "value"))
 def show_solution(selected_rows, county):
-    if not selected_rows:  # unticking the box keeps the last plan on the map
+    if not selected_rows: 
         return no_update, no_update
     county_solutions = solutions[county]
     solution = county_solutions[county_solutions.id == selected_rows[0]["id"]].iloc[0]
@@ -147,7 +148,7 @@ def show_solution(selected_rows, county):
 
 
 clientside_callback(ClientsideFunction(namespace="maplibre", function_name="draw"), Output("drawn", "data"),
-                    Input("map_data", "data"), Input("layers", "value"), Input("basemap", "value"))  # assets/map.js draws the map
+                    Input("map_data", "data"),Input("layers", "value"),Input("basemap", "value")) 
 
 
 if __name__ == "__main__":
