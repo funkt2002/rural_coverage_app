@@ -1,0 +1,20 @@
+site_id,label,station,open,lon,lat
+T10,Los Molinos Station 10,Los Molinos Station 10,1,-122.095965,40.026812
+T16,Vina Vol.,Vina Vol.,1,-122.05223,39.928586
+T12,Corning Station 12,Corning Station 12,1,-122.178357,39.931146
+T11,Richfield,Richfield Vol.,0,-122.176607,39.97434
+T09,El Camino Vol.,El Camino Vol.,1,-122.169596,40.071362
+T21,Paynes Creek Vol.,Paynes Creek Vol.,1,-121.913576,40.331421
+T01,Antelope 1 / CAL FIRE Red Bluff,Antelope 1 / CAL FIRE Red Bluff,1,-122.203629,40.18723
+T14,Dibble Creek Vol.,Dibble Creek Vol.,1,-122.283611,40.220817
+T05,Bend,Bend Vol.,0,-122.206439,40.260265
+T03,Bowman 3 / CAL FIRE Bowman,Bowman 3 / CAL FIRE Bowman,1,-122.354172,40.345701
+T02,Lake California Vol.,Lake California Vol.,1,-122.213439,40.354289
+T18,Manton 18 / CAL FIRE Manton,Manton 18 / CAL FIRE Manton,1,-121.873746,40.433285
+T20,Mineral Vol.,Mineral Vol.,1,-121.614109,40.346802
+T13,Rancho Tehama Vol.,Rancho Tehama Vol.,1,-122.400268,40.015358
+T04,Ridgeway,Ridgeway Vol.,0,-122.305851,40.147289
+TCOR,Corning city station,Corning city station,1,-122.18238,39.927182
+TRB,Red Bluff city station,Red Bluff city station,1,-122.235032,40.175399
+TCAP,Capay station,Capay station,1,-122.084898,39.799483
+TRRANCH,R Ranch,R Ranch Volunteer Station 6,0,-122.80263266082954,40.31699072299335

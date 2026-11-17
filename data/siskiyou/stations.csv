@@ -1,0 +1,36 @@
+site_id,label,station,open,lon,lat
+YRK01,Yreka,Yreka Fire Department Ley Station,1,-122.638838,41.732064
+SYK01,South Yreka Fire Protection District Fire Hall,South Yreka Fire Protection District Fire Hall,1,-122.636138,41.683835
+GRN01,Grenada,Grenada Fire Protection District Station,1,-122.525309,41.645856
+GAZ01,Gazelle Fire Protection District Station,Gazelle Fire Protection District Station,1,-122.52024,41.522607
+HRN01,Hornbrook Fire Protection District Station,Hornbrook Fire Protection District Station,1,-122.557784,41.912168
+HLT01,Hilt Fire Station,Hilt Fire Station (Colestin Rural Fire District Station 2),1,-122.611763,41.994909
+LKS01,Lake Shastina Fire Department Station,Lake Shastina Fire Department Station,1,-122.363478,41.528371
+MAY01,Mayten Fire Protection District Station,Mayten Fire Protection District Station,1,-122.406538,41.623596
+MTG01,Montague Fire Department Station,Montague Fire Department Station,1,-122.525824,41.727063
+MSV01,Mount Shasta Vista 1,Mount Shasta Vista Fire Zone Station 1,0,-122.314322,41.567022
+MSV02,Mount Shasta Vista 2,Mount Shasta Vista Fire Zone Station 2,0,-122.344054,41.590421
+BTV01,Butte Valley Fire Protection District Station,Butte Valley Fire Protection District Station,1,-122.004584,41.826082
+CPC01,Copco Lake Fire Protection District Station A,Copco Lake Fire Protection District Station A (Station 1),1,-122.262709,41.965139
+CPC02,Copco Lake 2,Copco Lake Fire Protection District Station B (Station 2),1,-122.32102097261703,41.97414096733284
+DOR01,Dorris Fire Department Station 35,Dorris Fire Department Station 35,1,-121.918036,41.963228
+PLV01,Pleasant Valley,Pleasant Valley Fire Zone Station,0,-121.958907,41.976964
+TUL01,Tulelake Fire Protection District Station 1,Tulelake Fire Protection District Station 1,1,-121.469214,41.94967
+ETN01,Etna,Etna Fire Department Station,1,-122.892668,41.456994
+FTJ01,Fort Jones Fire Department Station,Fort Jones Fire Department Station,1,-122.843151,41.606411
+HCP01,Happy Camp,Happy Camp Fire Hall,1,-123.377425,41.7945
+KRV01,Klamath River,Klamath River Volunteer Fire Company Walker Road Station (primary),1,-122.966254,41.82216
+SLM01,Salmon River Volunteer Fire and Rescue Forks of Salmon Station,Salmon River Volunteer Fire and Rescue Forks of Salmon Station,1,-123.326667,41.258069
+SVF01,Scott Valley Fire Protection District Moffett Creek Station,Scott Valley Fire Protection District Moffett Creek Station,1,-122.810198,41.627927
+SVF02,Scott Valley Fire Protection District Greenview Station,Scott Valley Fire Protection District Greenview Station,1,-122.907149,41.549981
+SVF03,Scott Valley Fire Protection District French Creek Station,Scott Valley Fire Protection District French Creek Station,1,-122.863227,41.413842
+SVF04,Scott Valley Fire Protection District Callahan Station,Scott Valley Fire Protection District Callahan Station,1,-122.773596,41.30803
+SEI01,Seiad Valley,Seiad Valley Fire Company Station,1,-123.193846,41.841653
+DUN01,Dunsmuir-Castella Fire Department Station 1,Dunsmuir-Castella Fire Department Station 1,1,-122.273016,41.209703
+DUN03,Dunsmuir 3,Dunsmuir-Castella Fire Department Isgrigg Station (Station 3),1,-122.275518,41.23342
+HMR01,Hammond Ranch Fire Zone Station,Hammond Ranch Fire Zone Station,1,-122.413245,41.394258
+MCC01,McCloud,McCloud Fire Department Station,1,-122.138541,41.2586
+MSC01,Mount Shasta 1,Mount Shasta City Fire Station 1,1,-122.312865,41.313116
+MSC02,Mount Shasta 2,Mount Shasta City Fire Station 2,1,-122.314543,41.312391
+MSF01,Mount Shasta Fire Protection District Station 1,Mount Shasta Fire Protection District Station 1,1,-122.316992,41.297715
+WED01,Weed Fire Department Station 12,Weed Fire Department Station 12,1,-122.381911,41.432008
